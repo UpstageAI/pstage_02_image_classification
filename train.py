@@ -45,6 +45,11 @@ def increment_path(path, exist_ok=False):
 
 
 def train(data_dir, model_dir, args):
+    print('test')
+    profiles = os.listdir(data_dir)
+    print('PROFILES')
+    print(profiles)
+    
     seed_everything(args.seed)
 
     save_dir = increment_path(os.path.join(model_dir, args.name))
