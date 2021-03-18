@@ -95,8 +95,6 @@ class MaskBaseDataset(data.Dataset):
 
     def setup(self):
         profiles = os.listdir(self.data_dir)
-        print('PROFILES')
-        print(profiles)
         for profile in profiles:
             for file_name, label in self._file_names.items():
                 img_path = os.path.join(self.data_dir, profile, file_name)  # (resized_data, 000004_male_Asian_54, mask1.jpg)
@@ -154,13 +152,12 @@ class MaskMultiLabelDataset(MaskBaseDataset):
 
     def setup(self):
         profiles = os.listdir(self.data_dir)
-        print('PROFILES')
-        print(profiles)
         for profile in profiles:
             for file_name, label in self._file_names.items():
                 img_path = os.path.join(self.data_dir, profile, file_name)  # (resized_data, 000004_male_Asian_54, mask1.jpg)
                 print(img_path)
                 if os.path.exists(img_path) and is_image_file(img_path):
+                    print(img_path)
                     self.image_paths.append(img_path)
                     self.labels.append(label)
 
